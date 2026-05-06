@@ -1,0 +1,24 @@
+1) Create app.py
+vi app.py
+
+from flask import Flask
+app=Flask(__name__)
+@app.route('/')
+def home():
+  return "hello, docker!"
+if __name__== '__main__:
+  app.run(host='0.0.0.0',port=5000)
+
+2) Create Dockerfile
+ vi Dockerfile
+
+FROM python:3.12-slim 
+WORKDIR /app 
+COPY app.py . 
+RUN pip install flask 
+EXPOSE 5000 
+CMD ["python3", "app.py"] 
+
+3) Build and run the container
+docker build -t flask-webapp .
+docker run -d -p 5000:5000 flask-webapp
