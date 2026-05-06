@@ -1,0 +1,19 @@
+1) Start PostgreSQL 
+docker run --name pg-test -e POSTGRES_PASSWORD=root -d -p 5432:5432 postgres 
+
+2) Enter PostgreSQL CLI 
+docker exec -it pg-test psql -U postgres
+
+3) Run SQL Commands 
+CREATE TABLE users ( 
+id TEXT PRIMARY KEY, 
+name TEXT, 
+age INT 
+); 
+
+4) Insert the values
+INSERT INTO users VALUES ('P01', 'Ganesh', 30); 
+INSERT INTO users VALUES ('P02', 'Suresh', 40); 
+
+5) Display the contents
+SELECT * FROM users;
