@@ -1,3 +1,4 @@
+1) File and Directory management
 mkdir demo
 cd demo
 echo "hello cloud shell">hello.txt
@@ -21,12 +22,14 @@ mv b.txt c.txt
 cat b.txt
 cat c.txt
 
+2) Viewing and editing files
 less c.txt (q)
 head c.txt
 tail c.txt
 nano c.txt
 vi c.txt
 
+3) System Information
 whoami
 uname -a
 df -h
@@ -34,12 +37,14 @@ du -sh *
 free -h
 uptime
 
+4) Environment variables and shell
 env
 echo $HOME
 export MYVAR=123
 history
 clear
 
+5) gcloud commands
 gcloud auth list
 gcloud config set account 'ACCOUNT'
 gcloud projects list
