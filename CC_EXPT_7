@@ -1,0 +1,25 @@
+1) Enable pub/sub API
+ gcloud services enable pubsub.googleapis.com
+
+2) Create pub/sub topic
+gcloud pubsub topics create my-topic
+
+3) Create a subscription
+gcloud pubsub subscriptions create my-subscription --topic=my-topic
+
+4) Publish a message 
+gcloud pubsub topics publish my-topic --message="hello"
+
+5)Receive messages
+gcloud pubsub subscriptions pull my-subscription --auto-ack
+
+6) Simulate real-time messaging
+gcloud pubsub subscriptions pull my-subscription --auto-ack --limit=10
+
+In Terminal 2 :
+gcloud pubsub topics publish my-topic --message="message1"
+gcloud pubsub topics publish my-topic --message="message2"
+
+7) Clean up resources
+gcloud pubsub subscriptions delete my-subscription
+gcloud pubsub topics delete my-topic
