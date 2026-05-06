@@ -1,0 +1,27 @@
+1) Create a file lambda_function.py
+vi lambda_function.py
+def lambda_handler(event, context):
+    return {
+        "statusCode": 200,
+        "body": "Hello from Lambda!"
+    }
+
+2) Create Dockerfile
+vi Dockerfile
+
+FROM public.ecr.aws/lambda/python:3.9 
+COPY lambda_function.py . 
+CMD ["lambda_function.lambda_handler"] 
+
+3)
+hostname -I
+
+4) Build the Docker Image
+docker build -t my-lambda .
+172.30.1.2  172.17.0.1   10.88.0.1
+
+5) Run the container locally
+docker run -p 9000:8000 my-lambda
+
+6)Invoke the function
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}' 
